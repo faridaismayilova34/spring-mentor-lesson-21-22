@@ -66,36 +66,3 @@ public class SpeakerServiceImpl implements SpeakerService {
         return talkMapper.toDtoList(talkRepository.findBySpeakerId(speakerId));
     }
 }
-
-
-
-//    private final SpeakerRepository speakerRepository;
-//    private final SpeakerMapper speakerMapper;
-//
-//    public SpeakerResponseDto create(SpeakerRequestDto dto) {
-//        if (speakerRepository.existsByEmail(dto.getEmail())) {
-//            log.warn("Speaker with email {} already exists", dto.getEmail());
-//            throw new DuplicateResourceException("Speaker with this email already exists");
-//        }
-//
-//        Speaker speaker = speakerMapper.toEntity(dto);
-//        Speaker saved = speakerRepository.save(speaker);
-//        log.info("Speaker created with id {}", saved.getId());
-//        return speakerMapper.toDto(saved);
-//    }
-//
-//    public List<SpeakerResponseDto> findAll() {
-//        log.debug("Fetching all speakers");
-//        return speakerMapper.toDtoList(speakerRepository.findAll());
-//    }
-//
-//    public SpeakerResponseDto findById(Long id) {
-//        log.debug("Fetching speaker {}", id);
-//        Speaker speaker = speakerRepository.findById(id)
-//                .orElseThrow(() -> {
-//                    log.warn("Speaker with id {} not found", id);
-//                    return new ResourceNotFoundException("Speaker with id " + id + " not found");
-//                });
-//        return speakerMapper.toDto(speaker);
-//    }
-//}
